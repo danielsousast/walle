@@ -6,17 +6,17 @@ export const SearchInputWrapper = styled.View`
   flex-direction: row;
   align-items: center;
   padding: 0 12px;
-  border: 1px solid ${({ theme }) => theme.colors.textLight};
+  border: 1px solid ${({theme}) => theme.colors.textLight};
 `;
 
-export const Input = styled.TextInput.attrs(({ theme }: any) => ({
+export const Input = styled.TextInput.attrs(({theme}: any) => ({
   color: theme.colors.textDark,
   placeholderTextColor: theme.colors.textLight,
 }))`
   flex: 1;
   margin-left: 8px;
   margin-right: 8px;
-  font-family: ${({ theme }) => theme.fonts.regular};
+  font-family: ${({theme}) => theme.fonts.regular};
 `;
 
 export const ClearButton = styled.TouchableOpacity`
@@ -25,5 +25,5 @@ export const ClearButton = styled.TouchableOpacity`
   border-radius: 15px;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.shape};
+  background-color: ${({theme}) => theme.colors.shape};
 `;

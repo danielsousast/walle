@@ -1,15 +1,15 @@
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import { Modal, ModalProps } from 'react-native';
-import { CurrencyInput } from '~/presentation/components/CurrencyInput';
-import { Header } from '~/presentation/components/Header';
+import {Modal, ModalProps} from 'react-native';
+import {CurrencyInput} from '~/presentation/components/CurrencyInput';
+import {Header} from '~/presentation/components/Header';
 import {
   DefaultContainer,
   DefaultContent,
 } from '~/presentation/components/Shared/Layout';
-import { DateItem } from './DateItem';
+import {DateItem} from './DateItem';
 import DescriptionInput from './DescriptionInput';
-import { ItemButton } from './ItemButton';
+import {ItemButton} from './ItemButton';
 
 interface AddTransactionModalProps extends ModalProps {
   title: string;

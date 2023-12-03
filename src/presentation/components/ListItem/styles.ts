@@ -8,7 +8,7 @@ export const IconWrapper = styled.View`
   width: 36px;
   height: 36px;
 
-  background-color: ${({ theme }) => theme.colors.textLight};
+  background-color: ${({theme}) => theme.colors.textLight};
 `;
 
 export const LeftContainer = styled.View`

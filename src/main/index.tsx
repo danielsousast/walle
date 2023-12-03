@@ -9,7 +9,7 @@ import AppNavigator from './navigation';
 
 const queryClient = new QueryClient();
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   const deviceTheme = useColorScheme();
   const theme = deviceTheme && deviceTheme === 'dark' ? darkTheme : lightTheme;
 
@@ -31,5 +31,3 @@ const App: React.FC = () => {
     </ThemeProvider>
   );
 };
-
-export default App;

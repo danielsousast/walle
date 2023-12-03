@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
-import { TextInput } from 'react-native';
+import React, {useRef} from 'react';
+import {TextInput} from 'react-native';
 import AppIcon from '../Shared/Icon';
-import { SearchInputWrapper, Input, ClearButton } from './styles';
+import {SearchInputWrapper, Input, ClearButton} from './styles';
 
 const SearchInput: React.FC = () => {
   const inputRef = useRef<TextInput>(null);

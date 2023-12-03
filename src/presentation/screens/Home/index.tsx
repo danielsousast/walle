@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, {useCallback} from 'react';
 import BalanceCard from '~/presentation/components/BalanceCard';
 
 import {
@@ -11,7 +11,7 @@ import {
   ServiceScroll,
   Wrapper,
 } from './styles';
-import { SectionTitle } from '~/presentation/components/Shared/Typography';
+import {SectionTitle} from '~/presentation/components/Shared/Typography';
 import ServiceCard from '~/presentation/components/ServiceCard';
 import TransactionsList from '~/presentation/components/TransactionsList';
 import useShortcuts from '~/presentation/hooks/useShortcuts';
@@ -22,8 +22,8 @@ type HomeScreenProps = {
   };
 };
 
-const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
-  const { activeShortcuts } = useShortcuts();
+const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
+  const {activeShortcuts} = useShortcuts();
 
   const handleShortcutPress = useCallback((navigateTo: string) => {
     navigation.navigate(navigateTo);
@@ -41,10 +41,10 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
         <Wrapper>
           <SectionTitle>Account Overview</SectionTitle>
           <BalanceCard />
-          <SectionTitle style={{ marginTop: 32 }}>Quick Access</SectionTitle>
+          <SectionTitle style={{marginTop: 32}}>Quick Access</SectionTitle>
         </Wrapper>
         <ServiceScroll>
-          {activeShortcuts.map((shortcut) => (
+          {activeShortcuts.map(shortcut => (
             <ServiceCard
               key={shortcut.id}
               icon={shortcut.icon}
@@ -54,9 +54,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
           ))}
         </ServiceScroll>
         <Wrapper>
-          <SectionTitle style={{ marginTop: 32 }}>
-            Last Trasactions
-          </SectionTitle>
+          <SectionTitle style={{marginTop: 32}}>Last Trasactions</SectionTitle>
           <TransactionsList />
         </Wrapper>
       </Content>

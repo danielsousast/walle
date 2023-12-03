@@ -1,9 +1,9 @@
 import React from 'react';
-import { useTheme } from 'styled-components';
+import {useTheme} from 'styled-components';
 import AppIcon from '../Shared/Icon';
-import { DefaultItemContainer } from '../Shared/Layout';
-import { Description, Label } from '../Shared/Typography';
-import { IconWrapper, LeftContainer, RightContainer } from './styles';
+import {DefaultItemContainer} from '../Shared/Layout';
+import {Description, Label} from '../Shared/Typography';
+import {IconWrapper, LeftContainer, RightContainer} from './styles';
 
 type ListItemProps = {
   description: string;
@@ -22,7 +22,7 @@ export const ListItem: React.FC<ListItemProps> = ({
   date,
   itemType = 'default',
 }) => {
-  const { colors } = useTheme();
+  const {colors} = useTheme();
 
   const monetaryValueColors = {
     income: colors.green,
@@ -46,8 +46,7 @@ export const ListItem: React.FC<ListItemProps> = ({
         <Description
           style={{
             color: monetaryValueColors[itemType],
-          }}
-        >
+          }}>
           R$ {monetaryValue}
         </Description>
         <Label>{date}</Label>

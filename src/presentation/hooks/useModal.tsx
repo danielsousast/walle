@@ -1,6 +1,6 @@
-import React, { createContext, useCallback, useContext, useState } from 'react';
+import React, {createContext, useCallback, useContext, useState} from 'react';
 import AddCategoryModal from '../components/AddCategory';
-import { AddTransactionModal } from '../components/AddTransaction';
+import {AddTransactionModal} from '../components/AddTransaction';
 
 interface ContextData {
   showAddTransactionModal(title: string): void;
@@ -15,7 +15,7 @@ type ModalProviderProps = {
   children: React.ReactNode;
 };
 
-const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
+const ModalProvider: React.FC<ModalProviderProps> = ({children}) => {
   const [addTransactionModal, setAddTransactionModal] = useState({
     visible: false,
     title: '',
@@ -57,8 +57,7 @@ const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
         closeAddTransactionModal,
         showAddCategoryModal,
         closeAddCategoryModal,
-      }}
-    >
+      }}>
       {children}
       <AddTransactionModal
         visible={addTransactionModal.visible}
@@ -83,4 +82,4 @@ function useModal(): ContextData {
   return context;
 }
 
-export { ModalProvider, useModal };
+export {ModalProvider, useModal};

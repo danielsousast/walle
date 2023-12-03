@@ -5,10 +5,10 @@ export const Container = styled.View`
   align-items: center;
   border-bottom-width: 1px;
   padding: 12px 0;
-  border-bottom-color:${({theme}) => theme.colors.shape}
+  border-bottom-color: ${({theme}) => theme.colors.shape};
 `;
 
 export const Input = styled.TextInput`
-flex: 1;
-margin-left: 16px;
+  flex: 1;
+  margin-left: 16px;
 `;

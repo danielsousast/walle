@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 
 export const ModalCotent = styled.View`
@@ -7,7 +7,7 @@ export const ModalCotent = styled.View`
   padding: 16px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({theme}) => theme.colors.background};
 `;
 
 export const TitleWrapper = styled.View`
@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
     margin: 0,
   },
 });
-
 
 export const ModalShape = styled.View`
   height: 3px;
