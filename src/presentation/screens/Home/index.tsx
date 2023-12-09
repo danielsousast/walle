@@ -1,5 +1,4 @@
 import React, {useCallback} from 'react';
-import BalanceCard from '~/presentation/components/BalanceCard';
 
 import {
   Container,
@@ -11,9 +10,12 @@ import {
   ServiceScroll,
   Wrapper,
 } from './styles';
-import {SectionTitle} from '~/presentation/components/Shared/Typography';
-import ServiceCard from '~/presentation/components/ServiceCard';
-import TransactionsList from '~/presentation/components/TransactionsList';
+import {
+  SectionTitle,
+  ServiceCard,
+  TransactionsList,
+  BalanceCard,
+} from '~/presentation/components';
 import useShortcuts from '~/presentation/hooks/useShortcuts';
 
 type HomeScreenProps = {
@@ -22,12 +24,15 @@ type HomeScreenProps = {
   };
 };
 
-const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
+export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
   const {activeShortcuts} = useShortcuts();
 
-  const handleShortcutPress = useCallback((navigateTo: string) => {
-    navigation.navigate(navigateTo);
-  }, []);
+  const handleShortcutPress = useCallback(
+    (navigateTo: string) => {
+      navigation.navigate(navigateTo);
+    },
+    [navigation],
+  );
 
   return (
     <Container>
@@ -61,5 +66,3 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
     </Container>
   );
 };
-
-export default HomeScreen;

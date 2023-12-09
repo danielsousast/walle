@@ -1,7 +1,21 @@
 import {useQuery} from '@tanstack/react-query';
-import {ListTransactionsUseCaseImpl} from '~/data/usecases';
+import {ReactQueryKeys} from '~/common/enums';
+import {
+  ListAllTransactionUseCaseImpl,
+  transactionRepository,
+} from '~/modules/transaction';
 
-const lisTransactions = new ListTransactionsUseCaseImpl();
+export const useAllTransactions = () => {
+  const useCase = new ListAllTransactionUseCaseImpl(transactionRepository);
 
-export const useAllTransactions = () =>
-  useQuery(['all-transactions'], () => lisTransactions.execute());
+  const {isLoading, isError, data} = useQuery({
+    queryKey: [ReactQueryKeys.GetAllTransactions],
+    queryFn: useCase.execute,
+  });
+
+  return {
+    isLoading,
+    isError,
+    data,
+  };
+};

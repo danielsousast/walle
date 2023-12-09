@@ -1,16 +1,17 @@
 import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
 import React, {useCallback} from 'react';
-import {Transaction} from '~/domain/models/TransactionModel';
-import Header from '~/presentation/components/Header';
-import SearchInput from '~/presentation/components/SearchInput';
-import {ListItem} from '~/presentation/components/ListItem';
+import {TransactionModel} from '~/modules/transaction';
+
 import {
   DefaultContainer,
   DefaultContent,
   DefaultHeaderListWrapper,
-} from '~/presentation/components/Shared/Layout';
+  ListItem,
+  SearchInput,
+  Header,
+} from '~/presentation/components';
 
-const transactions: Transaction[] = [
+const transactions: TransactionModel[] = [
   {
     id: '1',
     title: 'Nubank',
@@ -40,17 +41,20 @@ const transactions: Transaction[] = [
   },
 ];
 
-const AccountsScreen: React.FC = ({navigation}: any) => {
-  const renderItem = useCallback(({item}: ListRenderItemInfo<Transaction>) => {
-    return (
-      <ListItem
-        description={item.title}
-        label={item.category}
-        monetaryValue={item.formattedValue}
-        date={item.formattedDate}
-      />
-    );
-  }, []);
+export const AccountsScreen: React.FC = ({navigation}: any) => {
+  const renderItem = useCallback(
+    ({item}: ListRenderItemInfo<TransactionModel>) => {
+      return (
+        <ListItem
+          description={item.title}
+          label={item.category}
+          monetaryValue={item.formattedValue}
+          date={item.formattedDate}
+        />
+      );
+    },
+    [],
+  );
 
   const renderListHeader = useCallback(
     () => (
@@ -76,5 +80,3 @@ const AccountsScreen: React.FC = ({navigation}: any) => {
     </DefaultContainer>
   );
 };
-
-export default AccountsScreen;

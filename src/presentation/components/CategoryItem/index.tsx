@@ -1,10 +1,10 @@
 import React from 'react';
 import AppIcon from '../Shared/Icon';
-import { DefaultItemContainer } from '../Shared/Layout';
-import { Description } from '../Shared/Typography';
-import { Button } from './styles';
+import {DefaultItemContainer} from '../Shared/Layout';
+import {Description} from '../Shared/Typography';
+import {Button} from './styles';
 
-const CategoryItem: React.FC = () => {
+export const CategoryItem: React.FC = () => {
   return (
     <DefaultItemContainer>
       <Description>Salário</Description>
@@ -14,5 +14,3 @@ const CategoryItem: React.FC = () => {
     </DefaultItemContainer>
   );
 };
-
-export default CategoryItem;

@@ -1,64 +1,36 @@
 import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
 import React, {useCallback} from 'react';
-import {Transaction} from '~/domain/models/TransactionModel';
-import Header from '~/presentation/components/Header';
-import SearchInput from '~/presentation/components/SearchInput';
-import {ListItem} from '~/presentation/components/ListItem';
 import {
   DefaultContainer,
   DefaultContent,
   DefaultHeaderListWrapper,
 } from '~/presentation/components/Shared/Layout';
 import {useAllTransactions} from '~/presentation/hooks/useAllTransactions';
-import {FloatingButton} from '~/presentation/components/FloatingButton';
+import {
+  FloatingButton,
+  Header,
+  ListItem,
+  SearchInput,
+} from '~/presentation/components';
+import {TransactionModel} from '~/modules/transaction';
 
-const transactions: Transaction[] = [
-  {
-    id: '1',
-    title: 'Salário Developer',
-    category: 'Salário',
-    value: 1000,
-    formattedValue: 'R$ 1.000,00',
-    formattedDate: '01/01/2020',
-    type: 'income',
-  },
-  {
-    id: `2`,
-    title: 'Almoço',
-    category: 'Alimentação',
-    value: 1000,
-    formattedValue: 'R$ 1.000,00',
-    formattedDate: '01/01/2020',
-    type: 'outcome',
-  },
-  {
-    id: '3',
-    title: 'Compra Roupa',
-    category: 'Vestuário',
-    value: 1000,
-    formattedValue: 'R$ 1.000,00',
-    formattedDate: '01/01/2020',
-    type: 'outcome',
-  },
-];
+export const TransactionsScreen: React.FC = ({navigation}: any) => {
+  const {data} = useAllTransactions();
 
-const TransactionsScreen: React.FC = ({navigation}: any) => {
-  const {error, data} = useAllTransactions();
-
-  console.log(data);
-  console.log(error);
-
-  const renderItem = useCallback(({item}: ListRenderItemInfo<Transaction>) => {
-    return (
-      <ListItem
-        description={item.title}
-        date={item.formattedDate}
-        monetaryValue={item.formattedValue}
-        label={item.category}
-        itemType={item.type}
-      />
-    );
-  }, []);
+  const renderItem = useCallback(
+    ({item}: ListRenderItemInfo<TransactionModel>) => {
+      return (
+        <ListItem
+          description={item.title}
+          date={item.formattedDate}
+          monetaryValue={item.formattedValue}
+          label={item.category}
+          itemType={item.type}
+        />
+      );
+    },
+    [],
+  );
 
   const renderListHeader = useCallback(
     () => (
@@ -74,7 +46,7 @@ const TransactionsScreen: React.FC = ({navigation}: any) => {
       <Header title="Transactions" navigation={navigation} />
       <DefaultContent>
         <FlashList
-          data={transactions}
+          data={data}
           estimatedItemSize={50}
           renderItem={renderItem}
           ListHeaderComponent={renderListHeader}
@@ -85,5 +57,3 @@ const TransactionsScreen: React.FC = ({navigation}: any) => {
     </DefaultContainer>
   );
 };
-
-export default TransactionsScreen;

@@ -1,20 +1,21 @@
-import { FlashList } from '@shopify/flash-list';
-import React, { useCallback, useState } from 'react';
-import { Dimensions } from 'react-native';
-import { useTheme } from 'styled-components';
-import CategoryItem from '~/presentation/components/CategoryItem';
-import Header from '~/presentation/components/Header';
+import {FlashList} from '@shopify/flash-list';
+import React, {useCallback, useState} from 'react';
+import {Dimensions} from 'react-native';
+import {useTheme} from 'styled-components';
+
 import {
   DefaultContainer,
   DefaultContent,
-} from '~/presentation/components/Shared/Layout';
-import TabSelector from '~/presentation/components/TabSelector';
+  Header,
+  TabSelector,
+  CategoryItem,
+} from '~/presentation/components';
 
-const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
-const CategoriesScreen: React.FC = ({ navigation }: any) => {
-  const { colors } = useTheme();
-  const [selectedTransactionType, setSelectedTransactionType] = useState<
+export const CategoriesScreen: React.FC = ({navigation}: any) => {
+  const {colors} = useTheme();
+  const [_selectedTransactionType, setSelectedTransactionType] = useState<
     'left' | 'right'
   >('left');
 
@@ -35,10 +36,10 @@ const CategoriesScreen: React.FC = ({ navigation }: any) => {
         width={SCREEN_WIDTH / 2 - 16}
       />
     );
-  }, [selectedTransactionType]);
+  }, [onTabSelectorPress]);
 
   return (
-    <DefaultContainer style={{ backgroundColor: colors.shape }}>
+    <DefaultContainer style={{backgroundColor: colors.shape}}>
       <Header title="Categories" navigation={navigation} />
 
       <DefaultContent>
@@ -47,11 +48,9 @@ const CategoriesScreen: React.FC = ({ navigation }: any) => {
           estimatedItemSize={50}
           renderItem={renderItem}
           ListHeaderComponent={renderListHeader}
-          contentContainerStyle={{ paddingVertical: 16 }}
+          contentContainerStyle={{paddingVertical: 16}}
         />
       </DefaultContent>
     </DefaultContainer>
   );
 };
-
-export default CategoriesScreen;

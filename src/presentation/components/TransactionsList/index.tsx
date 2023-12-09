@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
+import React, {useCallback} from 'react';
 import AppIcon from '../Shared/Icon';
-import { Label } from '../Shared/Typography';
+import {Label} from '../Shared/Typography';
 import {
   Container,
   IconWrapper,
@@ -46,7 +46,7 @@ type Transaction = {
   type: 'income' | 'expense';
 };
 
-const TransactionsList: React.FC = () => {
+export const TransactionsList: React.FC = () => {
   const renderItem = useCallback((transaction: Transaction) => {
     return (
       <ItemWrapper key={transaction.id}>
@@ -61,8 +61,7 @@ const TransactionsList: React.FC = () => {
           <ItemDescription
             style={{
               color: transaction.type === 'income' ? '#00BFA5' : '#E57373',
-            }}
-          >
+            }}>
             R$ 100,00
           </ItemDescription>
           <Label>11AM</Label>
@@ -72,9 +71,7 @@ const TransactionsList: React.FC = () => {
   }, []);
   return (
     <Container>
-      {transactions.map((transaction) => renderItem(transaction))}
+      {transactions.map(transaction => renderItem(transaction))}
     </Container>
   );
 };
-
-export default TransactionsList;

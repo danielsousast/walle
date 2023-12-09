@@ -3,7 +3,7 @@ import {TextInput} from 'react-native';
 import AppIcon from '../Shared/Icon';
 import {SearchInputWrapper, Input, ClearButton} from './styles';
 
-const SearchInput: React.FC = () => {
+export const SearchInput: React.FC = () => {
   const inputRef = useRef<TextInput>(null);
   const [text, setText] = React.useState('');
 
@@ -31,5 +31,3 @@ const SearchInput: React.FC = () => {
     </SearchInputWrapper>
   );
 };
-
-export default SearchInput;

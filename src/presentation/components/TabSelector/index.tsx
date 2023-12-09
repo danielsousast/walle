@@ -33,7 +33,7 @@ const clamp = {
   extrapolateRight: Extrapolation.CLAMP,
 };
 
-const TabSelector = React.forwardRef<SelectorRef, Selector>(
+export const TabSelector = React.forwardRef<SelectorRef, Selector>(
   ({onPress, leftTitle, rightTitle, width = SELECTOR_WIDTH, current}, ref) => {
     {
       useImperativeHandle(ref, () => ({
@@ -97,5 +97,3 @@ const TabSelector = React.forwardRef<SelectorRef, Selector>(
     }
   },
 );
-
-export default TabSelector;

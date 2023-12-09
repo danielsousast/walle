@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
-import { useTheme } from 'styled-components/native';
-import { CustomAppIcon } from '../CustomIcon';
+import React, {useCallback} from 'react';
+import {useTheme} from 'styled-components/native';
+import {CustomAppIcon} from '../CustomIcon';
 import AppIcon from '../Shared/Icon';
-import { Label } from '../Shared/Typography';
+import {Label} from '../Shared/Typography';
 import {
   Container,
   MainValue,
@@ -13,8 +13,8 @@ import {
   EyeButton,
 } from './styles';
 
-const BalanceCard: React.FC = () => {
-  const { colors } = useTheme();
+export const BalanceCard: React.FC = () => {
+  const {colors} = useTheme();
   const [seeValues, setSeeValues] = React.useState(false);
 
   const toggleSeeValues = useCallback(() => {
@@ -48,7 +48,7 @@ const BalanceCard: React.FC = () => {
             <Value color={colors.green}>{incomesTotal}</Value>
           </TextWrapper>
         </OptionButton>
-        <OptionButton style={{ paddingLeft: 16 }}>
+        <OptionButton style={{paddingLeft: 16}}>
           <CustomAppIcon size={30} name="arrow-bottom" color={colors.red} />
           <TextWrapper>
             <Label>Outcomes</Label>
@@ -59,5 +59,3 @@ const BalanceCard: React.FC = () => {
     </Container>
   );
 };
-
-export default BalanceCard;
