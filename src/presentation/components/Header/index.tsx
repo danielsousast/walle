@@ -4,28 +4,28 @@ import {useTheme} from 'styled-components/native';
 import BackButton from '../BackButton';
 import Icon from 'react-native-vector-icons/Feather';
 import {DateSelectText, HeaderContainer, RightButton} from './styles';
+import {useNavigation} from '@react-navigation/native';
 
 type HeaderProps = {
   title: string;
-  navigation: any;
   onBackPress?: () => void;
   onRightButtonPress?: () => void;
 };
 
 export const Header: React.FC<HeaderProps> = ({
-  navigation,
   title,
   onBackPress,
   onRightButtonPress,
 }) => {
+  const {goBack} = useNavigation();
   const {colors} = useTheme();
 
   const handleOnBackPress = useCallback(() => {
     if (onBackPress) {
       return onBackPress();
     }
-    navigation.goBack();
-  }, [navigation, onBackPress]);
+    goBack();
+  }, [onBackPress]);
 
   const handleRightButtonPress = useCallback(() => {
     if (onRightButtonPress) {

@@ -1,20 +1,15 @@
 import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
 import React, {useCallback} from 'react';
-import {
-  DefaultContainer,
-  DefaultContent,
-  DefaultHeaderListWrapper,
-} from '~/presentation/components/Shared/Layout';
-import {useAllTransactions} from '~/presentation/hooks/useAllTransactions';
+import * as Shared from '~/presentation/components/Shared/Layout';
+import {useAllTransactions, TransactionModel} from '~/features/transaction';
 import {
   FloatingButton,
   Header,
   ListItem,
   SearchInput,
 } from '~/presentation/components';
-import {TransactionModel} from '~/modules/transaction';
 
-export const TransactionsScreen: React.FC = ({navigation}: any) => {
+export const TransactionsScreen: React.FC = () => {
   const {data} = useAllTransactions();
 
   const renderItem = useCallback(
@@ -34,17 +29,17 @@ export const TransactionsScreen: React.FC = ({navigation}: any) => {
 
   const renderListHeader = useCallback(
     () => (
-      <DefaultHeaderListWrapper>
+      <Shared.DefaultHeaderListWrapper>
         <SearchInput />
-      </DefaultHeaderListWrapper>
+      </Shared.DefaultHeaderListWrapper>
     ),
     [],
   );
 
   return (
-    <DefaultContainer invert>
-      <Header title="Transactions" navigation={navigation} />
-      <DefaultContent>
+    <Shared.DefaultContainer invert>
+      <Header title="Transactions" />
+      <Shared.DefaultContent>
         <FlashList
           data={data}
           estimatedItemSize={50}
@@ -52,8 +47,8 @@ export const TransactionsScreen: React.FC = ({navigation}: any) => {
           ListHeaderComponent={renderListHeader}
           contentContainerStyle={{paddingVertical: 24}}
         />
-      </DefaultContent>
+      </Shared.DefaultContent>
       <FloatingButton />
-    </DefaultContainer>
+    </Shared.DefaultContainer>
   );
 };

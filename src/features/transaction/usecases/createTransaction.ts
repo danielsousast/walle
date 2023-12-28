@@ -2,7 +2,7 @@ import {
   CreateTransactionsUseCase,
   TransactionModel,
   TransactionRepository,
-} from '../transactionTypes';
+} from '../interfaces';
 
 export class CreateTransactionUseCaseImpl implements CreateTransactionsUseCase {
   constructor(private readonly repository: TransactionRepository) {}

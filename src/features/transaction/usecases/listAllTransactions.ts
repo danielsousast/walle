@@ -1,8 +1,5 @@
-import {
-  ListTransactionsUseCase,
-  TransactionRepository,
-} from '../transactionTypes';
-import {transactions} from '../trasactionRepository';
+import {ListTransactionsUseCase, TransactionRepository} from '../interfaces';
+//import {transactions} from '../repositories/localRepository';
 
 export class ListAllTransactionUseCaseImpl implements ListTransactionsUseCase {
   private repository: TransactionRepository;
@@ -11,6 +8,6 @@ export class ListAllTransactionUseCaseImpl implements ListTransactionsUseCase {
   }
 
   async execute() {
-    return transactions;
+    return this.repository.getAll();
   }
 }

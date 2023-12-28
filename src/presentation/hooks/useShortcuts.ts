@@ -22,8 +22,7 @@ const DEFAULT_SHORTCUTS = [
 ];
 
 const useShortcuts = () => {
-  const [activeShortcuts] =
-    React.useState<any[]>(DEFAULT_SHORTCUTS);
+  const [activeShortcuts] = React.useState<any[]>(DEFAULT_SHORTCUTS);
 
   return {
     activeShortcuts,

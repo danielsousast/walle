@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import React, { useMemo } from 'react';
+import React, {useMemo} from 'react';
 let Feather: React.FC<VectorIconProps>;
 let MaterialCommunityIcons: React.FC<VectorIconProps>;
 let Ionicons: React.FC<VectorIconProps>;
@@ -17,7 +17,9 @@ export type IconName =
   | 'down'
   | 'search'
   | 'close'
-  | 'settings' | 'edit' | 'calendar';
+  | 'settings'
+  | 'edit'
+  | 'calendar';
 
 type VectorIconProps = {
   name: string;
@@ -31,13 +33,15 @@ type IconProps = {
   color?: string;
 };
 
-const AppIcon: React.FC<IconProps> = ({ icon, size = 32, color = '#ccc' }) => {
+const AppIcon: React.FC<IconProps> = ({icon, size = 32, color = '#ccc'}) => {
   const iconComponent = useMemo(() => {
     if (
       icon === 'transaction' ||
       icon === 'category' ||
       icon === 'search' ||
-      icon === 'settings' || icon === 'edit' || icon === 'calendar'
+      icon === 'settings' ||
+      icon === 'edit' ||
+      icon === 'calendar'
     ) {
       Feather = require('react-native-vector-icons/Feather').default;
     }
@@ -94,9 +98,9 @@ const AppIcon: React.FC<IconProps> = ({ icon, size = 32, color = '#ccc' }) => {
       case 'settings':
         return <Feather name="more-vertical" size={size} color={color} />;
       case 'edit':
-        return <Feather name="edit-2" size={size} color={color} />;      
+        return <Feather name="edit-2" size={size} color={color} />;
       case 'calendar':
-        return <Feather name="calendar" size={size} color={color} />;   
+        return <Feather name="calendar" size={size} color={color} />;
       default:
         return null;
     }

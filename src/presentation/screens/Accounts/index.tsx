@@ -1,6 +1,6 @@
 import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
 import React, {useCallback} from 'react';
-import {TransactionModel} from '~/modules/transaction';
+import {TransactionModel} from '~/features/transaction';
 
 import {
   DefaultContainer,

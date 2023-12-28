@@ -1,4 +1,4 @@
-import {TransactionModel, TransactionRepository} from './transactionTypes';
+import {TransactionModel, TransactionRepository} from '../interfaces';
 
 export const transactions: TransactionModel[] = [
   {
