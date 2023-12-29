@@ -41,7 +41,7 @@ const transactions: TransactionModel[] = [
   },
 ];
 
-export const AccountsScreen: React.FC = ({navigation}: any) => {
+export const AccountsScreen = () => {
   const renderItem = useCallback(
     ({item}: ListRenderItemInfo<TransactionModel>) => {
       return (
@@ -67,7 +67,7 @@ export const AccountsScreen: React.FC = ({navigation}: any) => {
 
   return (
     <DefaultContainer invert>
-      <Header title="Accounts" navigation={navigation} />
+      <Header title="Accounts" />
       <DefaultContent>
         <FlashList
           data={transactions}

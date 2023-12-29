@@ -5,7 +5,7 @@ import ColorSelector from '../ColorSelector';
 import {IconSelector} from '../IconSelector';
 import {InputIcon} from '../InputIcon';
 import {SectionTitle} from '../Shared/Typography';
-import {ModalCotent, ModalShape, styles, TitleWrapper} from './styles';
+import * as Styled from './styles';
 
 type AddCategoryModalProps = {
   visible: boolean;
@@ -27,18 +27,16 @@ const AddCategoryModal: React.FC<AddCategoryModalProps> = ({
       propagateSwipe
       deviceHeight={deviceHeight}
       deviceWidth={deviceWidth}
-      style={styles.modal}>
-      <ModalCotent>
-        <ModalShape />
-        <TitleWrapper>
+      style={Styled.styles.modal}>
+      <Styled.ModalCotent>
+        <Styled.ModalShape />
+        <Styled.TitleWrapper>
           <SectionTitle>Add Category</SectionTitle>
-        </TitleWrapper>
-
+        </Styled.TitleWrapper>
         <InputIcon icon="edit" />
-
         <ColorSelector />
         <IconSelector />
-      </ModalCotent>
+      </Styled.ModalCotent>
     </Modal>
   );
 };

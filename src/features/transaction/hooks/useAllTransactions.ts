@@ -1,10 +1,7 @@
 import React from 'react';
-
-import {
-  ListAllTransactionUseCaseImpl,
-  TransactionModel,
-  transactionRepository,
-} from '~/features/transaction';
+import {ListAllTransactionUseCaseImpl} from '../usecases/listAllTransactions';
+import {TransactionModel} from '../interfaces';
+import {transactionRepository} from '../repositories/localRepository';
 
 const useCase = new ListAllTransactionUseCaseImpl(transactionRepository);
 

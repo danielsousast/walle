@@ -3,18 +3,12 @@ import {TouchableWithoutFeedback} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {useTheme} from 'styled-components/native';
 import AppIcon from '~/presentation/components/Shared/Icon';
-import {
-  ButtonWrapperPlus,
-  ButtonWrapperSecondary,
-  Container,
-  Overlay,
-} from './styles';
+import {ButtonWrapperPlus, ButtonWrapperSecondary, Container} from './styles';
 import {useFloatingButton} from './hook';
 
 export const FloatingButton: React.FC = () => {
   const {colors} = useTheme();
   const {
-    isExpanded,
     primaryButtonStyles,
     secondaryButtonStyles,
     tertiaryButtonStyles,
@@ -24,11 +18,6 @@ export const FloatingButton: React.FC = () => {
 
   return (
     <Fragment>
-      {isExpanded && (
-        <TouchableWithoutFeedback onPress={handlePlusPress}>
-          <Overlay />
-        </TouchableWithoutFeedback>
-      )}
       <Container>
         <TouchableWithoutFeedback onPress={handlePlusPress}>
           <ButtonWrapperPlus>

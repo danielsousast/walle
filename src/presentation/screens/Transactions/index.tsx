@@ -2,12 +2,7 @@ import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
 import React, {useCallback} from 'react';
 import * as Shared from '~/presentation/components/Shared/Layout';
 import {useAllTransactions, TransactionModel} from '~/features/transaction';
-import {
-  FloatingButton,
-  Header,
-  ListItem,
-  SearchInput,
-} from '~/presentation/components';
+import {Header, ListItem, SearchInput} from '~/presentation/components';
 
 export const TransactionsScreen: React.FC = () => {
   const {data} = useAllTransactions();
@@ -48,7 +43,6 @@ export const TransactionsScreen: React.FC = () => {
           contentContainerStyle={{paddingVertical: 24}}
         />
       </Shared.DefaultContent>
-      <FloatingButton />
     </Shared.DefaultContainer>
   );
 };
