@@ -2,7 +2,6 @@ module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [
     'babel-plugin-styled-components',
-    'react-native-reanimated/plugin',
     [
       'babel-plugin-root-import',
       {
@@ -10,5 +9,6 @@ module.exports = {
         rootPathSuffix: 'src',
       },
     ],
+    'react-native-reanimated/plugin',
   ],
 };

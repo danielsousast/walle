@@ -1,12 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-
-import {
-  DefaultContainer,
-  DefaultContent,
-  Header,
-} from '~/presentation/components';
 import {MenuItem, MenuItemProps} from './MenuItem/MenuItem';
+import {BaseModal} from '~/presentation/components/BaseModal/BaseModal';
+import * as Styled from './ModalMenu.styles';
 
 interface MenuItem extends Omit<MenuItemProps, 'onPress'> {
   id: string;
@@ -25,26 +21,21 @@ const menu: MenuItem[] = [
     route: 'Categories',
     icon: 'category',
   },
-  {
-    id: '3',
-    label: 'About this app',
-    route: 'about',
-    icon: 'settings',
-  },
 ];
 
-export const SettingsScreen = () => {
+interface ModalMenuProps {
+  visible: boolean;
+  onClose: () => void;
+}
+
+export const ModalMenu = ({visible, onClose}: ModalMenuProps) => {
   return (
-    <DefaultContainer invert>
-      <Header title="Settings" />
-      <DefaultContent
-        style={{
-          paddingTop: 24,
-        }}>
+    <BaseModal visible={visible} onClose={onClose}>
+      <Styled.Content>
         {menu.map(item => (
-          <MenuItem {...item} onPress={() => {}} />
+          <MenuItem key={item.id} {...item} onPress={() => {}} />
         ))}
-      </DefaultContent>
-    </DefaultContainer>
+      </Styled.Content>
+    </BaseModal>
   );
 };

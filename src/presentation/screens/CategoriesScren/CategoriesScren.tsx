@@ -13,7 +13,7 @@ import {
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
-export const CategoriesScreen: React.FC = ({navigation}: any) => {
+export const CategoriesScreen = () => {
   const {colors} = useTheme();
   const [_selectedTransactionType, setSelectedTransactionType] = useState<
     'left' | 'right'
@@ -40,8 +40,7 @@ export const CategoriesScreen: React.FC = ({navigation}: any) => {
 
   return (
     <DefaultContainer style={{backgroundColor: colors.shape}}>
-      <Header title="Categories" navigation={navigation} />
-
+      <Header title="Categories" />
       <DefaultContent>
         <FlashList
           data={['1', '2', '3']}

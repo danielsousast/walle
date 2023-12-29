@@ -16,3 +16,10 @@ export const Label = styled.Text`
   font-family: ${({theme}) => theme.fonts.bold};
   color: ${({theme}) => theme.colors.text};
 `;
+
+export const Content = styled.View`
+  height: 70%;
+  background-color: ${({theme}) => theme.colors.background};
+  padding: 24px;
+  border-radius: 12px;
+`;

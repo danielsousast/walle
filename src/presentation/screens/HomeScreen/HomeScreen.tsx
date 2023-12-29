@@ -17,6 +17,7 @@ import {
   BalanceCard,
 } from '~/presentation/components';
 import useShortcuts from '~/presentation/hooks/useShortcuts';
+import {useModal} from '~/presentation/hooks/useModal';
 
 type HomeScreenProps = {
   navigation: {
@@ -26,6 +27,7 @@ type HomeScreenProps = {
 
 export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
   const {activeShortcuts} = useShortcuts();
+  const {handleOpenModalMenu} = useModal();
 
   const handleShortcutPress = useCallback(
     (navigateTo: string) => {
@@ -38,7 +40,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
     <Container>
       <HomeHeader>
         <Logo source={require('../../assets/logo.png')} />
-        <MenuIconButton>
+        <MenuIconButton onPress={handleOpenModalMenu}>
           <MenuIcon />
         </MenuIconButton>
       </HomeHeader>

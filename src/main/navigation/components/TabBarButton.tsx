@@ -11,10 +11,7 @@ export function TabBarButton({route, navigation}: any) {
   }
 
   return (
-    <Button
-      onPress={onPress}
-      paddingRight={route?.name === Routes.Transactions}
-      paddingLeft={route?.name === Routes.Categories}>
+    <Button onPress={onPress}>
       <SvgIcon
         size={26}
         name={mapRouteToIcon(route?.name)}
@@ -30,10 +27,8 @@ function mapRouteToIcon(routeName: string) {
       return 'home';
     case Routes.Transactions:
       return 'transactions';
-    case Routes.Categories:
-      return 'category';
     default:
-      return 'settings';
+      return 'home';
   }
 }
 
@@ -43,9 +38,8 @@ export const Button = styled.TouchableOpacity<{
   active?: boolean;
 }>`
   flex: 1;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-right: ${({paddingRight}) => (paddingRight ? 34 : 0)}px;
-  padding-left: ${({paddingLeft}) => (paddingLeft ? 34 : 0)}px;
   background-color: ${({active}) => (active ? 'red' : '#fff')};
 `;

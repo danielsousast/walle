@@ -1,12 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {
-  CategoriesScreen,
-  SettingsScreen,
-  TransactionsScreen,
-  HomeScreen,
-} from '~/presentation/screens';
+import {TransactionsScreen, HomeScreen} from '~/presentation/screens';
 import {FloatingButton} from '~/presentation/components';
 import {TabBarButton} from './components/TabBarButton';
 import {Routes} from '~/common/enums/Routes.enums';
@@ -27,10 +22,8 @@ export function TabNavigator() {
         },
       })}>
       <Screen name={Routes.Home} component={HomeScreen} />
-      <Screen name={Routes.Transactions} component={TransactionsScreen} />
       <Screen name={Routes.Add} component={TransactionsScreen} options={{}} />
-      <Screen name={Routes.Categories} component={CategoriesScreen} />
-      <Screen name={Routes.Settings} component={SettingsScreen} />
+      <Screen name={Routes.Transactions} component={TransactionsScreen} />
     </Navigator>
   );
 }

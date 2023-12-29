@@ -1,8 +1,8 @@
 import React from 'react';
-import {CategoryIcon} from './CategoryIcon';
-import {HomeIcon} from './HomeIcon';
-import {SettingsIcon} from './SettingsIcon';
-import {TransactionsIcon} from './TransactionsIcon';
+import {CategoryIcon} from './svgs/CategoryIcon';
+import {HomeIcon} from './svgs/HomeIcon';
+import {SettingsIcon} from './svgs/SettingsIcon';
+import {TransactionsIcon} from './svgs/TransactionsIcon';
 
 const Icons = {
   category: CategoryIcon,
