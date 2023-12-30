@@ -1,23 +1,24 @@
 import React from 'react';
+import {Routes} from '~/common/enums/Routes.enums';
 
 const DEFAULT_SHORTCUTS = [
   {
     id: '1',
-    title: 'Transactions',
+    title: 'transactions',
     icon: 'transaction',
-    navigateTo: 'Transactions',
+    navigateTo: Routes.Transactions,
   },
   {
     id: '2',
-    title: 'Accounts',
+    title: 'accounts',
     icon: 'bank',
-    navigateTo: 'Accounts',
+    navigateTo: Routes.Accounts,
   },
   {
     id: '3',
-    title: 'Categories',
+    title: 'categories',
     icon: 'category',
-    navigateTo: 'Categories',
+    navigateTo: Routes.Categories,
   },
 ];
 

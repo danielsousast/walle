@@ -18,6 +18,7 @@ import {
 } from '~/presentation/components';
 import useShortcuts from '~/presentation/hooks/useShortcuts';
 import {useModal} from '~/presentation/hooks/useModal';
+import {translate} from '~/common/locales';
 
 type HomeScreenProps = {
   navigation: {
@@ -46,9 +47,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
       </HomeHeader>
       <Content>
         <Wrapper>
-          <SectionTitle>Account Overview</SectionTitle>
+          <SectionTitle>{translate('accountOverview')}</SectionTitle>
           <BalanceCard />
-          <SectionTitle style={{marginTop: 32}}>Quick Access</SectionTitle>
+          <SectionTitle style={{marginTop: 32}}>
+            {translate('quickAccess')}
+          </SectionTitle>
         </Wrapper>
         <ServiceScroll>
           {activeShortcuts.map(shortcut => (
@@ -61,7 +64,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
           ))}
         </ServiceScroll>
         <Wrapper>
-          <SectionTitle style={{marginTop: 32}}>Last Trasactions</SectionTitle>
+          <SectionTitle style={{marginTop: 32}}>
+            {translate('lastTransactions')}
+          </SectionTitle>
           <TransactionsList />
         </Wrapper>
       </Content>

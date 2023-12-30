@@ -2,6 +2,7 @@ import {FlashList} from '@shopify/flash-list';
 import React, {useCallback, useState} from 'react';
 import {Dimensions} from 'react-native';
 import {useTheme} from 'styled-components';
+import {translate} from '~/common/locales';
 
 import {
   DefaultContainer,
@@ -30,8 +31,8 @@ export const CategoriesScreen = () => {
   const renderListHeader = useCallback(() => {
     return (
       <TabSelector
-        leftTitle="Incomes"
-        rightTitle="Outcomes"
+        leftTitle={translate('incomes')}
+        rightTitle={translate('expenses')}
         onPress={onTabSelectorPress}
         width={SCREEN_WIDTH / 2 - 16}
       />
@@ -40,7 +41,7 @@ export const CategoriesScreen = () => {
 
   return (
     <DefaultContainer style={{backgroundColor: colors.shape}}>
-      <Header title="Categories" />
+      <Header title={translate('categories')} />
       <DefaultContent>
         <FlashList
           data={['1', '2', '3']}

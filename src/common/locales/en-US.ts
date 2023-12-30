@@ -1,0 +1,21 @@
+export default {
+  translation: {
+    accountOverview: 'Account overview',
+    currentBalance: 'Current balance',
+    accounts: 'Accounts',
+    categories: 'Categories',
+    transactions: 'Transactions',
+    account: 'Account',
+    category: 'Category',
+    transaction: 'Transaction',
+    home: 'Home',
+    settings: 'Settings',
+    lastTransactions: 'Last transactions',
+    quickAccess: 'Quick access',
+    incomes: 'Incomes',
+    expenses: 'Expenses',
+    addCategory: 'Add category',
+    appTheme: 'App theme',
+    cleanHistory: 'Clean history',
+  },
+};

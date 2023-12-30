@@ -1,7 +1,6 @@
 import React, {useCallback} from 'react';
 import {useTheme} from 'styled-components/native';
-import {CustomAppIcon} from '../CustomIcon';
-import AppIcon from '../Shared/Icon';
+import {AppIcon} from '../Shared/Icon';
 import {Label} from '../Shared/Typography';
 import {
   Container,
@@ -12,6 +11,7 @@ import {
   TextWrapper,
   EyeButton,
 } from './styles';
+import {translate} from '~/common/locales';
 
 export const BalanceCard: React.FC = () => {
   const {colors} = useTheme();
@@ -38,20 +38,20 @@ export const BalanceCard: React.FC = () => {
       <EyeButton onPress={toggleSeeValues}>
         <AppIcon icon={seeValues ? 'eye-on' : 'eye-off'} size={28} />
       </EyeButton>
-      <Label>Current Balance</Label>
+      <Label>{translate('currentBalance')}</Label>
       <MainValue>{balanceTotal}</MainValue>
       <OptionsWrapper>
         <OptionButton>
-          <CustomAppIcon size={30} name="arrow-up" color={colors.green} />
+          <AppIcon size={30} icon="arrow-up" color={colors.green} />
           <TextWrapper>
-            <Label>Incomes</Label>
+            <Label>{translate('incomes')}</Label>
             <Value color={colors.green}>{incomesTotal}</Value>
           </TextWrapper>
         </OptionButton>
         <OptionButton style={{paddingLeft: 16}}>
-          <CustomAppIcon size={30} name="arrow-bottom" color={colors.red} />
+          <AppIcon size={30} icon="arrow-down" color={colors.red} />
           <TextWrapper>
-            <Label>Outcomes</Label>
+            <Label>{translate('expenses')}</Label>
             <Value color={colors.red}>{expensesTotal}</Value>
           </TextWrapper>
         </OptionButton>

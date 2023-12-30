@@ -5,7 +5,6 @@ export * from './BalanceCard';
 export * from './CategoryItem';
 export * from './ColorSelector';
 export * from './CurrencyInput';
-export * from './CustomIcon';
 export * from './FloatingButton';
 export * from './Header';
 export * from './IconSelector';

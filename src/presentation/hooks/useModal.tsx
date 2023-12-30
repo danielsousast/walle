@@ -1,7 +1,7 @@
 import React, {createContext, useCallback, useContext, useState} from 'react';
 import AddCategoryModal from '../components/AddCategory';
 import {AddTransactionModal} from '../components/AddTransaction';
-import {ModalMenu} from '../screens';
+import {ModalMenu} from '../components/ModalMenu/ModalMenu';
 
 interface ContextData {
   showAddTransactionModal(title: string): void;

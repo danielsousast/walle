@@ -1,3 +1,4 @@
+import '../common/locales';
 import {NavigationContainer} from '@react-navigation/native';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import React from 'react';

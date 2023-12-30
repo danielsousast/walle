@@ -18,8 +18,31 @@ export const Label = styled.Text`
 `;
 
 export const Content = styled.View`
-  height: 70%;
+  height: 45%;
+  justify-content: center;
   background-color: ${({theme}) => theme.colors.background};
   padding: 24px;
   border-radius: 12px;
+`;
+
+export const Separator = styled.View`
+  height: 1px;
+  width: 100%;
+  background-color: ${({theme}) => theme.colors.text};
+  opacity: 0.2;
+  margin: 16px 0;
+  margin-bottom: 24px;
+`;
+
+export const CloseButton = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: -20px;
+  border-radius: 20px;
+  align-self: center;
+  background-color: ${({theme}) => theme.colors.textLight};
+  border: 1px solid ${({theme}) => theme.colors.textLight};
 `;

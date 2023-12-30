@@ -3,6 +3,7 @@ import React, {useCallback} from 'react';
 import * as Shared from '~/presentation/components/Shared/Layout';
 import {useAllTransactions, TransactionModel} from '~/features/transaction';
 import {Header, ListItem, SearchInput} from '~/presentation/components';
+import {translate} from '~/common/locales';
 
 export const TransactionsScreen: React.FC = () => {
   const {data} = useAllTransactions();
@@ -33,7 +34,7 @@ export const TransactionsScreen: React.FC = () => {
 
   return (
     <Shared.DefaultContainer invert>
-      <Header title="Transactions" />
+      <Header title={translate('transactions')} />
       <Shared.DefaultContent>
         <FlashList
           data={data}

@@ -1,7 +1,7 @@
-import { Dimensions } from 'react-native';
+import {Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 const CARD_WIDTH = width * 0.25;
 
 export const ServiceCardContainer = styled.TouchableOpacity.attrs({
@@ -14,5 +14,5 @@ export const ServiceCardContainer = styled.TouchableOpacity.attrs({
   padding: 0;
   margin-right: 12px;
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.colors.shape};
+  background-color: ${({theme}) => theme.colors.shape};
 `;

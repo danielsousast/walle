@@ -1,5 +1,6 @@
 import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
 import React, {useCallback} from 'react';
+import {translate} from '~/common/locales';
 import {TransactionModel} from '~/features/transaction';
 
 import {
@@ -67,7 +68,7 @@ export const AccountsScreen = () => {
 
   return (
     <DefaultContainer invert>
-      <Header title="Accounts" />
+      <Header title={translate('accounts')} />
       <DefaultContent>
         <FlashList
           data={transactions}

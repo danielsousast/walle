@@ -1,6 +1,6 @@
 import React from 'react';
-import AppIcon from '~/presentation/components/Shared/Icon';
-import { BadgeWrapper, BageText, ItemButtonContainer } from './styles';
+import {AppIcon} from '~/presentation/components/Shared/Icon';
+import {BadgeWrapper, BageText, ItemButtonContainer} from './styles';
 
 export const ItemButton: React.FC = () => {
   return (

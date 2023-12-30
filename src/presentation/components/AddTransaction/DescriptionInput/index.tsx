@@ -1,5 +1,5 @@
 import React from 'react';
-import AppIcon from '~/presentation/components/Shared/Icon';
+import {AppIcon} from '~/presentation/components/Shared/Icon';
 import {Container, Input} from './styles';
 
 const DescriptionInput: React.FC = () => {

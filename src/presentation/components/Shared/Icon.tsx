@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import React, {useMemo} from 'react';
-let Feather: React.FC<VectorIconProps>;
-let MaterialCommunityIcons: React.FC<VectorIconProps>;
-let Ionicons: React.FC<VectorIconProps>;
-//let SimpleLineIcons: React.FC<VectorIconProps>;
+import React from 'react';
+import Feather from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export type IconName =
   | 'transaction'
@@ -19,13 +17,9 @@ export type IconName =
   | 'close'
   | 'settings'
   | 'edit'
-  | 'calendar';
-
-type VectorIconProps = {
-  name: string;
-  size?: number;
-  color?: string;
-};
+  | 'calendar'
+  | 'arrow-up'
+  | 'arrow-down';
 
 type IconProps = {
   icon: IconName;
@@ -33,80 +27,36 @@ type IconProps = {
   color?: string;
 };
 
-const AppIcon: React.FC<IconProps> = ({icon, size = 32, color = '#ccc'}) => {
-  const iconComponent = useMemo(() => {
-    if (
-      icon === 'transaction' ||
-      icon === 'category' ||
-      icon === 'search' ||
-      icon === 'settings' ||
-      icon === 'edit' ||
-      icon === 'calendar'
-    ) {
-      Feather = require('react-native-vector-icons/Feather').default;
-    }
+type Props = Omit<IconProps, 'icon'>;
 
-    if (icon === 'bank') {
-      MaterialCommunityIcons =
-        require('react-native-vector-icons/MaterialCommunityIcons').default;
-    }
-
-    if (
-      icon === 'income' ||
-      icon === 'expense' ||
-      icon === 'eye-on' ||
-      icon === 'eye-off' ||
-      icon === 'back' ||
-      icon === 'down' ||
-      icon === 'close'
-    ) {
-      Ionicons = require('react-native-vector-icons/Ionicons').default;
-    }
-
-    switch (icon) {
-      case 'transaction': {
-        return <Feather name="repeat" size={size} color={color} />;
-      }
-      case 'bank': {
-        return (
-          <MaterialCommunityIcons
-            name="bank-outline"
-            size={size}
-            color={color}
-          />
-        );
-      }
-      case 'category': {
-        return <Feather name="list" size={size} color={color} />;
-      }
-      case 'income':
-        return <Ionicons name="arrow-up-circle" size={size} color={color} />;
-      case 'expense':
-        return <Ionicons name="arrow-down-circle" size={size} color={color} />;
-      case 'eye-on':
-        return <Ionicons name="eye-outline" size={size} color={color} />;
-      case 'eye-off':
-        return <Ionicons name="eye-off-outline" size={size} color={color} />;
-      case 'back':
-        return <Ionicons name="arrow-back" size={size} color={color} />;
-      case 'down':
-        return <Ionicons name="chevron-down" size={size} color={color} />;
-      case 'search':
-        return <Feather name="search" size={size} color={color} />;
-      case 'close':
-        return <Ionicons name="close-outline" size={size} color={color} />;
-      case 'settings':
-        return <Feather name="more-vertical" size={size} color={color} />;
-      case 'edit':
-        return <Feather name="edit-2" size={size} color={color} />;
-      case 'calendar':
-        return <Feather name="calendar" size={size} color={color} />;
-      default:
-        return null;
-    }
-  }, [icon, color, size]);
-
-  return iconComponent;
+const icons = {
+  transaction: (props: Props) => <Feather name="repeat" {...props} />,
+  bank: (props: Props) => (
+    <MaterialCommunityIcons name="bank-outline" {...props} />
+  ),
+  category: (props: Props) => <Feather name="list" {...props} />,
+  income: (props: Props) => <Ionicons name="arrow-up-circle" {...props} />,
+  expense: (props: Props) => <Ionicons name="arrow-down-circle" {...props} />,
+  'eye-on': (props: Props) => <Ionicons name="eye-outline" {...props} />,
+  'eye-off': (props: Props) => <Ionicons name="eye-off-outline" {...props} />,
+  back: (props: Props) => <Ionicons name="arrow-back" {...props} />,
+  down: (props: Props) => <Ionicons name="chevron-down" {...props} />,
+  search: (props: Props) => <Feather name="search" {...props} />,
+  close: (props: Props) => <Ionicons name="close-outline" {...props} />,
+  settings: (props: Props) => <Feather name="more-vertical" {...props} />,
+  edit: (props: Props) => <Feather name="edit-2" {...props} />,
+  calendar: (props: Props) => <Feather name="calendar" {...props} />,
+  'arrow-up': (props: Props) => <Feather name="arrow-up-circle" {...props} />,
+  'arrow-down': (props: Props) => (
+    <Feather name="arrow-down-circle" {...props} />
+  ),
 };
 
-export default AppIcon;
+export const AppIcon: React.FC<IconProps> = ({
+  icon,
+  size = 32,
+  color = '#ccc',
+}) => {
+  const IconComponet = icons[icon];
+  return <IconComponet size={size} color={color} />;
+};

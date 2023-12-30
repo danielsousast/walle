@@ -1,5 +1,5 @@
 /* eslint-disable no-lone-blocks */
-/* eslint-disable react/display-name */
+
 import React, {useCallback, useImperativeHandle} from 'react';
 import {Dimensions} from 'react-native';
 import {
@@ -48,7 +48,9 @@ export const TabSelector = React.forwardRef<SelectorRef, Selector>(
         (type: SelectorType) => {
           const toValue = type === 'left' ? 0 : 1;
           anim.value = withTiming(toValue, {duration: 250}, finished => {
-            if (finished) runOnJS(onPress)(type);
+            if (finished) {
+              runOnJS(onPress)(type);
+            }
           });
         },
         [anim, onPress],

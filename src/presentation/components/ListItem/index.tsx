@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
-import AppIcon from '../Shared/Icon';
+import {AppIcon} from '../Shared/Icon';
 import {DefaultItemContainer} from '../Shared/Layout';
 import {Description, Label} from '../Shared/Typography';
 import {IconWrapper, LeftContainer, RightContainer} from './styles';

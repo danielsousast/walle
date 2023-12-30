@@ -3,6 +3,8 @@ import React from 'react';
 import {MenuItem, MenuItemProps} from './MenuItem/MenuItem';
 import {BaseModal} from '~/presentation/components/BaseModal/BaseModal';
 import * as Styled from './ModalMenu.styles';
+import {Routes} from '~/common/enums/Routes.enums';
+import {AppIcon} from '../Shared/Icon';
 
 interface MenuItem extends Omit<MenuItemProps, 'onPress'> {
   id: string;
@@ -11,17 +13,30 @@ interface MenuItem extends Omit<MenuItemProps, 'onPress'> {
 const menu: MenuItem[] = [
   {
     id: '1',
-    label: 'Accounts',
-    route: 'Accounts',
+    label: 'transactions',
+    route: Routes.Transactions,
     icon: 'home',
   },
   {
     id: '2',
-    label: 'Categories',
-    route: 'Categories',
+    label: 'accounts',
+    route: Routes.Accounts,
+    icon: 'home',
+  },
+  {
+    id: '3',
+    label: 'categories',
+    route: Routes.Categories,
     icon: 'category',
   },
 ];
+
+const settingsMenu: MenuItem = {
+  id: '4',
+  label: 'settings',
+  route: Routes.Settings,
+  icon: 'settings',
+};
 
 interface ModalMenuProps {
   visible: boolean;
@@ -32,9 +47,14 @@ export const ModalMenu = ({visible, onClose}: ModalMenuProps) => {
   return (
     <BaseModal visible={visible} onClose={onClose}>
       <Styled.Content>
+        <Styled.CloseButton onPress={onClose}>
+          <AppIcon icon="close" size={24} color="#fff" />
+        </Styled.CloseButton>
         {menu.map(item => (
-          <MenuItem key={item.id} {...item} onPress={() => {}} />
+          <MenuItem onPress={onClose} key={item.id} {...item} />
         ))}
+        <Styled.Separator />
+        <MenuItem onPress={onClose} {...settingsMenu} />
       </Styled.Content>
     </BaseModal>
   );

@@ -1,6 +1,10 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {AccountsScreen} from '~/presentation/screens';
+import {
+  AccountsScreen,
+  CategoriesScreen,
+  SettingsScreen,
+} from '~/presentation/screens';
 import {TabNavigator} from './tab';
 import {Routes} from '~/common/enums/Routes.enums';
 
@@ -14,6 +18,8 @@ export default function AppNavigator() {
       }}>
       <Screen name={Routes.HomeTab} component={TabNavigator} />
       <Screen name={Routes.Accounts} component={AccountsScreen} />
+      <Screen name={Routes.Categories} component={CategoriesScreen} />
+      <Screen name={Routes.Settings} component={SettingsScreen} />
     </Navigator>
   );
 }

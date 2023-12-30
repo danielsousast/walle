@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import {TextInput} from 'react-native';
-import AppIcon from '../Shared/Icon';
+import {AppIcon} from '../Shared/Icon';
 import {SearchInputWrapper, Input, ClearButton} from './styles';
 
 export const SearchInput: React.FC = () => {

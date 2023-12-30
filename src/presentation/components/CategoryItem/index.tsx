@@ -1,5 +1,5 @@
 import React from 'react';
-import AppIcon from '../Shared/Icon';
+import {AppIcon} from '../Shared/Icon';
 import {DefaultItemContainer} from '../Shared/Layout';
 import {Description} from '../Shared/Typography';
 import {Button} from './styles';

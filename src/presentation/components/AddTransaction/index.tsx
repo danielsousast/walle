@@ -9,6 +9,7 @@ import {
 import {DateItem} from './DateItem';
 import DescriptionInput from './DescriptionInput';
 import {ItemButton} from './ItemButton';
+import {translate} from '~/common/locales';
 
 interface AddTransactionModalProps extends ModalProps {
   title: string;
@@ -22,7 +23,10 @@ export const AddTransactionModal: React.FC<AddTransactionModalProps> = ({
   return (
     <Modal {...rest} animationType="slide">
       <DefaultContainer invert>
-        <Header title={title} onBackPress={onRequestClose as any} />
+        <Header
+          title={translate(title?.toLocaleLowerCase() as any)}
+          onBackPress={onRequestClose as any}
+        />
         <CurrencyInput />
         <DefaultContent paddingTop={24}>
           <DateItem />

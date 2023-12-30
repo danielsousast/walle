@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import AppIcon from '../Shared/Icon';
+import {AppIcon} from '../Shared/Icon';
 import {Label} from '../Shared/Typography';
 import {
   Container,
@@ -9,45 +9,11 @@ import {
   LeftContainer,
   RightContainer,
 } from './styles';
-
-const transactions: Transaction[] = [
-  {
-    id: 1,
-    description: 'Salário Developer',
-    category: 'Salário',
-    value: 'R$ 1.000,00',
-    date: '01/01/2020',
-    type: 'income',
-  },
-  {
-    id: 2,
-    description: 'Almoço',
-    category: 'Alimentação',
-    value: 'R$ 1.000,00',
-    date: '01/01/2020',
-    type: 'expense',
-  },
-  {
-    id: 3,
-    description: 'Compra Roupa',
-    category: 'Vestuário',
-    value: 'R$ 1.000,00',
-    date: '01/01/2020',
-    type: 'expense',
-  },
-];
-
-type Transaction = {
-  id: number;
-  description: string;
-  category: string;
-  value: string;
-  date: string;
-  type: 'income' | 'expense';
-};
+import {TransactionModel, useAllTransactions} from '~/features/transaction';
 
 export const TransactionsList: React.FC = () => {
-  const renderItem = useCallback((transaction: Transaction) => {
+  const {data} = useAllTransactions();
+  const renderItem = useCallback((transaction: TransactionModel) => {
     return (
       <ItemWrapper key={transaction.id}>
         <IconWrapper>
@@ -70,8 +36,6 @@ export const TransactionsList: React.FC = () => {
     );
   }, []);
   return (
-    <Container>
-      {transactions.map(transaction => renderItem(transaction))}
-    </Container>
+    <Container>{data?.map(transaction => renderItem(transaction))}</Container>
   );
 };

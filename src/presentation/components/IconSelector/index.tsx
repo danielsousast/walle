@@ -1,5 +1,5 @@
 import React from 'react';
-import AppIcon from '../Shared/Icon';
+import {AppIcon} from '../Shared/Icon';
 import {
   ColorSelectorContainer,
   TopWrapper,
@@ -19,16 +19,16 @@ export const IconSelector: React.FC = () => {
       </TopWrapper>
       <BottomWrapper>
         <IconButton>
-          <AppIcon icon="eye-on" size={16}/>
+          <AppIcon icon="eye-on" size={16} />
         </IconButton>
         <IconButton>
-          <AppIcon icon="bank"  size={16}/>
+          <AppIcon icon="bank" size={16} />
         </IconButton>
         <IconButton>
           <AppIcon icon="edit" size={16} />
         </IconButton>
         <IconButton>
-          <AppIcon icon="category" size={16}/>
+          <AppIcon icon="category" size={16} />
         </IconButton>
         <ChangeColorButton>
           <ButtonText>Other icon</ButtonText>

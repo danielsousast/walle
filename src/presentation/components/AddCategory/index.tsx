@@ -6,6 +6,7 @@ import {IconSelector} from '../IconSelector';
 import {InputIcon} from '../InputIcon';
 import {SectionTitle} from '../Shared/Typography';
 import * as Styled from './styles';
+import {translate} from '~/common/locales';
 
 type AddCategoryModalProps = {
   visible: boolean;
@@ -31,7 +32,7 @@ const AddCategoryModal: React.FC<AddCategoryModalProps> = ({
       <Styled.ModalCotent>
         <Styled.ModalShape />
         <Styled.TitleWrapper>
-          <SectionTitle>Add Category</SectionTitle>
+          <SectionTitle>{translate('addCategory')}</SectionTitle>
         </Styled.TitleWrapper>
         <InputIcon icon="edit" />
         <ColorSelector />

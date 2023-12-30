@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import {TouchableWithoutFeedback} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {useTheme} from 'styled-components/native';
-import AppIcon from '~/presentation/components/Shared/Icon';
+import {AppIcon} from '~/presentation/components';
 import {ButtonWrapperPlus, ButtonWrapperSecondary, Container} from './styles';
 import {useFloatingButton} from './hook';
 
@@ -36,7 +36,7 @@ export const FloatingButton: React.FC = () => {
           </ButtonWrapperSecondary>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback
-          onPress={() => handleAddTransaction('Outcomes')}>
+          onPress={() => handleAddTransaction('Expenses')}>
           <ButtonWrapperSecondary style={tertiaryButtonStyles}>
             <Icon name="arrow-down" color="red" size={24} />
           </ButtonWrapperSecondary>
