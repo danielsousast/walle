@@ -1,16 +1,15 @@
 import React from 'react';
 import {AppIcon} from '../Shared/Icon';
-import {DefaultItemContainer} from '../Shared/Layout';
 import {Description} from '../Shared/Typography';
-import {Button} from './styles';
+import {Button, ItemContainer} from './styles';
 
 export const CategoryItem: React.FC = () => {
   return (
-    <DefaultItemContainer>
-      <Description>Salário</Description>
+    <ItemContainer>
       <Button>
-        <AppIcon icon="settings" size={22} />
+        <AppIcon icon="menu" size={22} />
       </Button>
-    </DefaultItemContainer>
+      <Description>Salário</Description>
+    </ItemContainer>
   );
 };

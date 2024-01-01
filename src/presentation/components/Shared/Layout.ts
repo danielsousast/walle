@@ -8,23 +8,21 @@ export const DefaultCard = styled.View`
 
 export const DefaultContainer = styled.View<{invert?: boolean}>`
   flex: 1;
-  background-color: ${({theme, invert}) =>
-    invert ? theme.colors.shape : theme.colors.background};
+  background-color: ${({theme}) => theme.colors.shape};
 `;
 
 export const DefaultContent = styled.View<{
   paddingTop?: number;
 }>`
   flex: 1;
-  margin-top: 16px;
   padding: 0 16px 16px;
   ${({paddingTop}) =>
     paddingTop &&
     css`
       padding-top: ${paddingTop}px;
     `}
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   background-color: ${({theme}) => theme.colors.background};
 `;
 
@@ -34,8 +32,9 @@ export const DefaultItemContainer = styled.TouchableOpacity`
   align-items: center;
   justify-content: space-between;
   border-radius: 12px;
-  background-color: ${({theme}) => theme.colors.shape};
   margin-bottom: 12px;
+  border-bottom-width: 1px;
+  border-bottom-color: ${({theme}) => theme.colors.shape};
 `;
 
 export const DefaultHeaderListWrapper = styled.View`

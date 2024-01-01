@@ -4,7 +4,11 @@ export const transactions: TransactionModel[] = [
   {
     id: '1',
     title: 'Salário Developer',
-    category: 'Salário',
+    category: {
+      name: 'Salário',
+      icon: 'dollar-sign',
+      color: '#12A454',
+    },
     value: 1000,
     formattedValue: 'R$ 1.000,00',
     formattedDate: '01/01/2020',
@@ -13,7 +17,11 @@ export const transactions: TransactionModel[] = [
   {
     id: '2',
     title: 'Almoço',
-    category: 'Alimentação',
+    category: {
+      name: 'Alimentação',
+      icon: 'coffee',
+      color: '#FFAC30',
+    },
     value: 1000,
     formattedValue: 'R$ 1.000,00',
     formattedDate: '01/01/2020',
@@ -22,7 +30,11 @@ export const transactions: TransactionModel[] = [
   {
     id: '3',
     title: 'Compra Roupa',
-    category: 'Vestuário',
+    category: {
+      name: 'Compras',
+      icon: 'shopping-bag',
+      color: '#E83F5B',
+    },
     value: 1000,
     formattedValue: 'R$ 1.000,00',
     formattedDate: '01/01/2020',
@@ -31,7 +43,6 @@ export const transactions: TransactionModel[] = [
 ];
 
 function getAll(): Promise<TransactionModel[]> {
-  console.log('getAllTransactions');
   //@ts-ignore
   return transactions;
 }

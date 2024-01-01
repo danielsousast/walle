@@ -15,8 +15,10 @@ export const TransactionsScreen: React.FC = () => {
           description={item.title}
           date={item.formattedDate}
           monetaryValue={item.formattedValue}
-          label={item.category}
+          label={item.category.name}
           itemType={item.type}
+          icon="category"
+          iconColor={item.category.color}
         />
       );
     },
@@ -33,7 +35,7 @@ export const TransactionsScreen: React.FC = () => {
   );
 
   return (
-    <Shared.DefaultContainer invert>
+    <Shared.DefaultContainer>
       <Header title={translate('transactions')} />
       <Shared.DefaultContent>
         <FlashList

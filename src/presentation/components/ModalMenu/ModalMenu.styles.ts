@@ -18,10 +18,10 @@ export const Label = styled.Text`
 `;
 
 export const Content = styled.View`
-  height: 45%;
   justify-content: center;
   background-color: ${({theme}) => theme.colors.background};
   padding: 24px;
+  padding-top: 32px;
   border-radius: 12px;
 `;
 

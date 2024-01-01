@@ -11,6 +11,7 @@ type ListItemProps = {
   monetaryValue: string;
   date: string;
   icon?: any;
+  iconColor?: string;
   itemType?: 'income' | 'outcome' | 'default';
 };
 
@@ -21,6 +22,7 @@ export const ListItem: React.FC<ListItemProps> = ({
   monetaryValue,
   date,
   itemType = 'default',
+  iconColor = '#ddd',
 }) => {
   const {colors} = useTheme();
 
@@ -33,13 +35,13 @@ export const ListItem: React.FC<ListItemProps> = ({
   return (
     <DefaultItemContainer>
       {icon && (
-        <IconWrapper>
-          <AppIcon icon="category" size={20} color="#fff" />
+        <IconWrapper bgColor={iconColor}>
+          <AppIcon icon="category" size={20} color={colors.shape} />
         </IconWrapper>
       )}
 
       <LeftContainer>
-        <Description>{description}</Description>
+        <Description bold>{description}</Description>
         <Label>{label}</Label>
       </LeftContainer>
       <RightContainer>

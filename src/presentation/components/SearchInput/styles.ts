@@ -6,7 +6,7 @@ export const SearchInputWrapper = styled.View`
   flex-direction: row;
   align-items: center;
   padding: 0 12px;
-  border: 1px solid ${({theme}) => theme.colors.textLight};
+  background-color: ${({theme}) => theme.colors.shape};
 `;
 
 export const Input = styled.TextInput.attrs(({theme}: any) => ({

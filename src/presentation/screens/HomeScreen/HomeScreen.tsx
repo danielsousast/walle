@@ -1,20 +1,12 @@
 import React, {useCallback} from 'react';
 
-import {
-  Container,
-  Content,
-  Logo,
-  MenuIcon,
-  MenuIconButton,
-  HomeHeader,
-  ServiceScroll,
-  Wrapper,
-} from './styles';
+import * as Styled from './styles';
 import {
   SectionTitle,
   ServiceCard,
   TransactionsList,
   BalanceCard,
+  AppIcon,
 } from '~/presentation/components';
 import useShortcuts from '~/presentation/hooks/useShortcuts';
 import {useModal} from '~/presentation/hooks/useModal';
@@ -38,22 +30,22 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
   );
 
   return (
-    <Container>
-      <HomeHeader>
-        <Logo source={require('../../assets/logo.png')} />
-        <MenuIconButton onPress={handleOpenModalMenu}>
-          <MenuIcon />
-        </MenuIconButton>
-      </HomeHeader>
-      <Content>
-        <Wrapper>
+    <Styled.Container>
+      <Styled.HomeHeader>
+        <Styled.Logo source={require('../../assets/logo.png')} />
+        <Styled.MenuIconButton onPress={handleOpenModalMenu}>
+          <AppIcon icon="menu" size={26} />
+        </Styled.MenuIconButton>
+      </Styled.HomeHeader>
+      <Styled.Content>
+        <Styled.Wrapper>
           <SectionTitle>{translate('accountOverview')}</SectionTitle>
           <BalanceCard />
           <SectionTitle style={{marginTop: 32}}>
             {translate('quickAccess')}
           </SectionTitle>
-        </Wrapper>
-        <ServiceScroll>
+        </Styled.Wrapper>
+        <Styled.ServiceScroll>
           {activeShortcuts.map(shortcut => (
             <ServiceCard
               key={shortcut.id}
@@ -62,14 +54,14 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
               onPress={() => handleShortcutPress(shortcut.navigateTo)}
             />
           ))}
-        </ServiceScroll>
-        <Wrapper>
+        </Styled.ServiceScroll>
+        <Styled.Wrapper>
           <SectionTitle style={{marginTop: 32}}>
             {translate('lastTransactions')}
           </SectionTitle>
           <TransactionsList />
-        </Wrapper>
-      </Content>
-    </Container>
+        </Styled.Wrapper>
+      </Styled.Content>
+    </Styled.Container>
   );
 };

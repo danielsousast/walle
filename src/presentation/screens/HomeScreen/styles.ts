@@ -1,5 +1,4 @@
 import styled, {css} from 'styled-components/native';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import StaticSafeAreaInsets from 'react-native-static-safe-area-insets';
 
 export const Container = styled.SafeAreaView`
@@ -39,12 +38,6 @@ export const HomeHeader = styled.View`
 `;
 
 export const MenuIconButton = styled.TouchableOpacity``;
-
-export const MenuIcon = styled(AntDesign).attrs(({theme}) => ({
-  name: 'appstore-o',
-  color: theme.colors.textLight,
-  size: 24,
-}))<any>``;
 
 export const ServiceScroll = styled.ScrollView.attrs({
   horizontal: true,

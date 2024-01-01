@@ -5,7 +5,11 @@ export interface TransactionModel {
   formattedValue: string;
   formattedDate: string;
   type: 'income' | 'outcome';
-  category: string;
+  category: {
+    name: string;
+    icon: string;
+    color: string;
+  };
 }
 
 export interface CreateTransactionsUseCase {

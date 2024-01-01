@@ -3,24 +3,6 @@ import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export type IconName =
-  | 'transaction'
-  | 'bank'
-  | 'category'
-  | 'income'
-  | 'expense'
-  | 'eye-on'
-  | 'eye-off'
-  | 'back'
-  | 'down'
-  | 'search'
-  | 'close'
-  | 'settings'
-  | 'edit'
-  | 'calendar'
-  | 'arrow-up'
-  | 'arrow-down';
-
 type IconProps = {
   icon: IconName;
   size?: number;
@@ -50,7 +32,10 @@ const icons = {
   'arrow-down': (props: Props) => (
     <Feather name="arrow-down-circle" {...props} />
   ),
+  menu: (props: Props) => <Feather name="menu" {...props} />,
 };
+
+export type IconName = keyof typeof icons;
 
 export const AppIcon: React.FC<IconProps> = ({
   icon,

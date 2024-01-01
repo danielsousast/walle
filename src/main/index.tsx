@@ -7,12 +7,14 @@ import {ThemeProvider} from 'styled-components';
 import {ModalProvider} from '~/presentation/hooks/useModal';
 import {darkTheme, lightTheme} from '../presentation/global/theme';
 import AppNavigator from './navigation';
+import {useAppSettings} from '~/presentation/hooks/useAppSettings';
 
 const queryClient = new QueryClient();
 
 export const App: React.FC = () => {
   const deviceTheme = useColorScheme();
-  const theme = deviceTheme && deviceTheme === 'dark' ? darkTheme : lightTheme;
+  const {theme: userTheme} = useAppSettings();
+  const theme = userTheme === 'dark' ? darkTheme : lightTheme;
 
   return (
     <ThemeProvider theme={theme}>

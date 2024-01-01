@@ -5,6 +5,7 @@ import {SvgIcon, SvgIconName} from '~/presentation/components/SvgIcon';
 import {useTheme} from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
 import {translate} from '~/common/locales';
+import {Label} from '../../Shared/Typography';
 
 export type MenuItemProps = {
   label: string;
@@ -24,7 +25,7 @@ export function MenuItem({label, icon, route, onPress}: MenuItemProps) {
   return (
     <Styled.MenuButton onPress={handlePress}>
       <SvgIcon name={icon} size={20} color={colors.text} />
-      <Styled.Label>{translate(label as any)}</Styled.Label>
+      <Label style={{marginLeft: 12}}>{translate(label as any)}</Label>
     </Styled.MenuButton>
   );
 }

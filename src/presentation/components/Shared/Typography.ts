@@ -28,7 +28,6 @@ export const SectionTitle = styled(TexBase)`
 `;
 
 export const Label = styled(TexBase)`
-  margin-bottom: 4px;
   font-size: 13px;
   font-family: ${({theme}) => theme.fonts.regular};
   color: ${({theme}) => theme.colors.text};

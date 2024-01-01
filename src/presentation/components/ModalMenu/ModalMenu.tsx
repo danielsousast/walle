@@ -47,7 +47,7 @@ export const ModalMenu = ({visible, onClose}: ModalMenuProps) => {
   return (
     <BaseModal visible={visible} onClose={onClose}>
       <Styled.Content>
-        <Styled.CloseButton onPress={onClose}>
+        <Styled.CloseButton onPress={onClose} activeOpacity={0.7}>
           <AppIcon icon="close" size={24} color="#fff" />
         </Styled.CloseButton>
         {menu.map(item => (

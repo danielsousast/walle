@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const IconWrapper = styled.View`
+export const IconWrapper = styled.View<{bgColor?: string}>`
   justify-content: center;
   align-items: center;
   margin-right: 16px;
@@ -8,7 +8,7 @@ export const IconWrapper = styled.View`
   width: 36px;
   height: 36px;
 
-  background-color: ${({theme}) => theme.colors.textLight};
+  background-color: ${({bgColor}) => bgColor};
 `;
 
 export const LeftContainer = styled.View`

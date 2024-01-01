@@ -41,5 +41,5 @@ export const Button = styled.TouchableOpacity<{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: ${({active}) => (active ? 'red' : '#fff')};
+  background-color: ${({theme}) => theme.colors.background};
 `;
