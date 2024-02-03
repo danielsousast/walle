@@ -1,12 +1,9 @@
 import React, {createContext, useCallback, useContext, useState} from 'react';
 import AddCategoryModal from '../components/AddCategory';
-import {AddTransactionModal} from '../components/AddTransaction';
 import {ModalMenu} from '../components/ModalMenu/ModalMenu';
 
 interface ContextData {
-  showAddTransactionModal(title: string): void;
   handleOpenModalMenu(): void;
-  closeAddTransactionModal(): void;
   showAddCategoryModal(): void;
   closeAddCategoryModal(): void;
 }
@@ -19,31 +16,13 @@ type ModalProviderProps = {
 
 const ModalProvider: React.FC<ModalProviderProps> = ({children}) => {
   const [modalMenuVisible, setModalMenuVisible] = useState(false);
-  const [addTransactionModal, setAddTransactionModal] = useState({
-    visible: false,
-    title: '',
-  });
   const [addCategoryModal, setAddCategoryModal] = useState({
     visible: false,
   });
 
-  const showAddTransactionModal = useCallback((title: string) => {
-    setAddTransactionModal({
-      visible: true,
-      title,
-    });
-  }, []);
-
   const showAddCategoryModal = useCallback(() => {
     setAddCategoryModal({
       visible: true,
-    });
-  }, []);
-
-  const closeAddTransactionModal = useCallback(() => {
-    setAddTransactionModal({
-      visible: false,
-      title: '',
     });
   }, []);
 
@@ -60,18 +39,12 @@ const ModalProvider: React.FC<ModalProviderProps> = ({children}) => {
   return (
     <ModalContext.Provider
       value={{
-        showAddTransactionModal,
-        closeAddTransactionModal,
         showAddCategoryModal,
         closeAddCategoryModal,
         handleOpenModalMenu,
       }}>
       {children}
-      <AddTransactionModal
-        visible={addTransactionModal.visible}
-        title={addTransactionModal.title}
-        onRequestClose={closeAddTransactionModal}
-      />
+
       <AddCategoryModal
         visible={addCategoryModal.visible}
         onRequestClose={closeAddCategoryModal}

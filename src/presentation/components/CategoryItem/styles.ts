@@ -5,10 +5,7 @@ export const ItemContainer = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   border-radius: 12px;
-  background-color: ${({theme}) => theme.colors.shape};
   margin-bottom: 12px;
-`;
-
-export const Button = styled.TouchableOpacity`
-  margin-right: 12px;
+  border-bottom-width: 1px;
+  border-bottom-color: ${({theme}) => theme.colors.shape};
 `;

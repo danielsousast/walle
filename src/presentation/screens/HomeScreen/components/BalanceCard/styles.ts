@@ -1,25 +1,28 @@
 import styled from 'styled-components/native';
-import { DefaultCard } from '../Shared/Layout';
+import {DefaultCard} from '../../../../components/Shared/Layout';
 
 export const Container = styled(DefaultCard)`
   justify-content: center;
-  align-items: center;
   margin-top: 24px;
   padding: 24px;
+  background-color: ${({theme}) => theme.colors.primary};
 `;
 
 export const Value = styled.Text.attrs({
   numberOfLines: 1,
-})<{ color?: string }>`
+})<{color?: string}>`
   font-size: 16px;
-  text-align: center;
+
   width: 100%;
-  font-family: ${({ theme }) => theme.fonts.bold};
-  color: ${({ color, theme }) => color || theme.colors.textDark};
+  font-family: ${({theme}) => theme.fonts.bold};
+  color: ${({color, theme}) => color || theme.colors.textDark};
 `;
 
 export const MainValue = styled(Value)`
-  font-size: 28px;
+  font-size: 24px;
+  margin-top: 8px;
+  font-weight: 500;
+  color: aliceblue;
 `;
 
 export const OptionsWrapper = styled.View`

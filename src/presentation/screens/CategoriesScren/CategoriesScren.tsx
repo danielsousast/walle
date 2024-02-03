@@ -1,8 +1,9 @@
-import {FlashList} from '@shopify/flash-list';
+import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
 import React, {useCallback, useState} from 'react';
 import {Dimensions} from 'react-native';
-import {useTheme} from 'styled-components';
+import {useTheme} from 'styled-components/native';
 import {translate} from '~/common/locales';
+import {useListCategories, CategoryModel} from '~/features/category';
 
 import {
   DefaultContainer,
@@ -16,6 +17,7 @@ const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
 export const CategoriesScreen = () => {
   const {colors} = useTheme();
+  const {categories} = useListCategories();
   const [_selectedTransactionType, setSelectedTransactionType] = useState<
     'left' | 'right'
   >('left');
@@ -24,9 +26,12 @@ export const CategoriesScreen = () => {
     setSelectedTransactionType(type);
   }, []);
 
-  const renderItem = useCallback(() => {
-    return <CategoryItem />;
-  }, []);
+  const renderItem = useCallback(
+    ({item}: ListRenderItemInfo<CategoryModel>) => {
+      return <CategoryItem category={item} />;
+    },
+    [],
+  );
 
   const renderListHeader = useCallback(() => {
     return (
@@ -44,7 +49,7 @@ export const CategoriesScreen = () => {
       <Header title={translate('categories')} />
       <DefaultContent>
         <FlashList
-          data={['1', '2', '3']}
+          data={categories}
           estimatedItemSize={50}
           renderItem={renderItem}
           ListHeaderComponent={renderListHeader}

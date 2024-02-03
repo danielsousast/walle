@@ -2,7 +2,7 @@ import {Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 
 const {width} = Dimensions.get('window');
-const CARD_WIDTH = width * 0.25;
+const CARD_WIDTH = width * 0.22;
 
 export const ServiceCardContainer = styled.TouchableOpacity.attrs({
   activeOpacity: 0.6,

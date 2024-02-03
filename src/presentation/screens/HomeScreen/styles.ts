@@ -12,7 +12,7 @@ export const Content = styled.ScrollView.attrs({
   },
 })`
   flex: 1;
-  padding: 24px 0 16px;
+  padding: 12px 0 16px;
 `;
 
 export const Wrapper = styled.View`

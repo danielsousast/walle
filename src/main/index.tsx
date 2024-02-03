@@ -2,7 +2,7 @@ import '../common/locales';
 import {NavigationContainer} from '@react-navigation/native';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import React from 'react';
-import {StatusBar, useColorScheme} from 'react-native';
+import {StatusBar} from 'react-native';
 import {ThemeProvider} from 'styled-components';
 import {ModalProvider} from '~/presentation/hooks/useModal';
 import {darkTheme, lightTheme} from '../presentation/global/theme';
@@ -12,7 +12,6 @@ import {useAppSettings} from '~/presentation/hooks/useAppSettings';
 const queryClient = new QueryClient();
 
 export const App: React.FC = () => {
-  const deviceTheme = useColorScheme();
   const {theme: userTheme} = useAppSettings();
   const theme = userTheme === 'dark' ? darkTheme : lightTheme;
 
@@ -24,9 +23,7 @@ export const App: React.FC = () => {
             <AppNavigator />
             <StatusBar
               backgroundColor={theme.colors.background}
-              barStyle={
-                deviceTheme === 'dark' ? 'light-content' : 'dark-content'
-              }
+              barStyle={userTheme === 'dark' ? 'light-content' : 'dark-content'}
             />
           </QueryClientProvider>
         </ModalProvider>

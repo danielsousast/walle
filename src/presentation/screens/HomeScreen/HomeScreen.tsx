@@ -1,14 +1,13 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 
-import * as Styled from './styles';
+import * as S from './styles';
 import {
   SectionTitle,
-  ServiceCard,
   TransactionsList,
   BalanceCard,
   AppIcon,
+  ServiceCard,
 } from '~/presentation/components';
-import useShortcuts from '~/presentation/hooks/useShortcuts';
 import {useModal} from '~/presentation/hooks/useModal';
 import {translate} from '~/common/locales';
 
@@ -18,50 +17,42 @@ type HomeScreenProps = {
   };
 };
 
-export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
-  const {activeShortcuts} = useShortcuts();
+export const HomeScreen: React.FC<HomeScreenProps> = () => {
   const {handleOpenModalMenu} = useModal();
 
-  const handleShortcutPress = useCallback(
-    (navigateTo: string) => {
-      navigation.navigate(navigateTo);
-    },
-    [navigation],
-  );
-
   return (
-    <Styled.Container>
-      <Styled.HomeHeader>
-        <Styled.Logo source={require('../../assets/logo.png')} />
-        <Styled.MenuIconButton onPress={handleOpenModalMenu}>
+    <S.Container>
+      <S.HomeHeader>
+        <S.Logo source={require('../../assets/logo.png')} />
+        <S.MenuIconButton onPress={handleOpenModalMenu}>
           <AppIcon icon="menu" size={26} />
-        </Styled.MenuIconButton>
-      </Styled.HomeHeader>
-      <Styled.Content>
-        <Styled.Wrapper>
-          <SectionTitle>{translate('accountOverview')}</SectionTitle>
+        </S.MenuIconButton>
+      </S.HomeHeader>
+      <S.Content>
+        <S.Wrapper>
           <BalanceCard />
-          <SectionTitle style={{marginTop: 32}}>
+          <SectionTitle
+            colorStyle="dark"
+            style={{
+              marginTop: 24,
+            }}>
             {translate('quickAccess')}
           </SectionTitle>
-        </Styled.Wrapper>
-        <Styled.ServiceScroll>
-          {activeShortcuts.map(shortcut => (
-            <ServiceCard
-              key={shortcut.id}
-              icon={shortcut.icon}
-              title={shortcut.title}
-              onPress={() => handleShortcutPress(shortcut.navigateTo)}
-            />
-          ))}
-        </Styled.ServiceScroll>
-        <Styled.Wrapper>
-          <SectionTitle style={{marginTop: 32}}>
-            {translate('lastTransactions')}
-          </SectionTitle>
+        </S.Wrapper>
+
+        <S.ServiceScroll>
+          <ServiceCard
+            title="Categories"
+            icon="transaction"
+            onPress={() => {}}
+          />
+          <ServiceCard title="Accounts" icon="bank" onPress={() => {}} />
+        </S.ServiceScroll>
+
+        <S.Wrapper>
           <TransactionsList />
-        </Styled.Wrapper>
-      </Styled.Content>
-    </Styled.Container>
+        </S.Wrapper>
+      </S.Content>
+    </S.Container>
   );
 };

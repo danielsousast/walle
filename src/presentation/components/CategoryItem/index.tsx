@@ -1,15 +1,18 @@
 import React from 'react';
-import {AppIcon} from '../Shared/Icon';
 import {Description} from '../Shared/Typography';
-import {Button, ItemContainer} from './styles';
+import {ItemContainer} from './styles';
+import {CategoryModel} from '~/features/category/category.interfaces';
+import {IconCircle} from '../IconCircle';
 
-export const CategoryItem: React.FC = () => {
+interface Props {
+  category: CategoryModel;
+}
+
+export const CategoryItem = ({category}: Props) => {
   return (
     <ItemContainer>
-      <Button>
-        <AppIcon icon="menu" size={22} />
-      </Button>
-      <Description>Salário</Description>
+      <IconCircle color={category.color} icon="category" />
+      <Description>{category.name}</Description>
     </ItemContainer>
   );
 };

@@ -6,7 +6,7 @@ export const ItemButtonContainer = styled.TouchableOpacity`
   padding: 8px 0px;
   width: 100%;
   border-bottom-width: 1px;
-  border-bottom-color:${({theme}) => theme.colors.shape}
+  border-bottom-color: ${({theme}) => theme.colors.shape};
 `;
 
 export const BadgeWrapper = styled.View`
@@ -18,6 +18,4 @@ export const BadgeWrapper = styled.View`
   margin-left: 16px;
 `;
 
-export const BageText = styled.Text`
-
-`;
+export const BageText = styled.Text``;

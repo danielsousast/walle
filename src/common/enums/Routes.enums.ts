@@ -4,6 +4,7 @@ export enum Routes {
   Settings = 'Settings',
   Categories = 'Categories',
   Accounts = 'Accounts',
-  Add = 'Add',
+  AddTransaction = 'AddTransaction',
   HomeTab = 'HomeTab',
+  Add = 'Add',
 }

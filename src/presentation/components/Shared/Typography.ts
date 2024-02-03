@@ -21,16 +21,17 @@ export const TexBase = styled.Text<TextProps>`
   `}
 `;
 
-export const SectionTitle = styled(TexBase)`
+export const SectionTitle = styled(TexBase)<{colorStyle: 'light' | 'dark'}>`
   font-size: 16px;
   font-family: ${({theme}) => theme.fonts.medium};
-  color: ${({theme}) => theme.colors.text};
+  color: ${({theme, colorStyle}) =>
+    colorStyle === 'light' ? theme.colors.shape : theme.colors.textDark};
 `;
 
 export const Label = styled(TexBase)`
   font-size: 13px;
   font-family: ${({theme}) => theme.fonts.regular};
-  color: ${({theme}) => theme.colors.text};
+  color: ${({theme}) => theme.colors.textLight};
 `;
 
 export const Description = styled(TexBase)`

@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {AppIcon} from '../Shared/Icon';
-import {Label} from '../Shared/Typography';
+import {Label, SectionTitle} from '../Shared/Typography';
 import {
   Container,
   IconWrapper,
@@ -9,10 +9,12 @@ import {
   LeftContainer,
   RightContainer,
 } from './styles';
-import {TransactionModel, useAllTransactions} from '~/features/transaction';
+import {TransactionModel, useTransactions} from '~/features/transaction';
+import {translate} from '~/common/locales';
 
 export const TransactionsList: React.FC = () => {
-  const {data} = useAllTransactions();
+  const {data} = useTransactions();
+
   const renderItem = useCallback((transaction: TransactionModel) => {
     return (
       <ItemWrapper key={transaction.id}>
@@ -35,7 +37,18 @@ export const TransactionsList: React.FC = () => {
       </ItemWrapper>
     );
   }, []);
+
+  if (!data) {
+    return null;
+  }
+
   return (
-    <Container>{data?.map(transaction => renderItem(transaction))}</Container>
+    <>
+      <SectionTitle style={{marginTop: 32}}>
+        {translate('lastTransactions')}
+      </SectionTitle>
+
+      <Container>{data?.map(transaction => renderItem(transaction))}</Container>
+    </>
   );
 };

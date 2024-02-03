@@ -1,6 +1,4 @@
 import React, {useCallback} from 'react';
-import {StatusBar} from 'react-native';
-import {useTheme} from 'styled-components/native';
 import BackButton from '../BackButton';
 import Icon from 'react-native-vector-icons/Feather';
 import {DateSelectText, HeaderContainer, RightButton} from './styles';
@@ -18,7 +16,6 @@ export const Header: React.FC<HeaderProps> = ({
   onRightButtonPress,
 }) => {
   const {goBack} = useNavigation();
-  const {colors} = useTheme();
 
   const handleOnBackPress = useCallback(() => {
     if (onBackPress) {
@@ -37,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
     <HeaderContainer>
       <BackButton onPress={handleOnBackPress} />
       <DateSelectText>{title}</DateSelectText>
-      <StatusBar backgroundColor={colors.shape} />
+
       {onRightButtonPress && (
         <RightButton onPress={handleRightButtonPress}>
           <Icon name="plus" size={28} color="#ccc" />

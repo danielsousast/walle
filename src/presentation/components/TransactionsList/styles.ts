@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { DefaultCard } from '../Shared/Layout';
+import {DefaultCard} from '../Shared/Layout';
 
 export const Container = styled(DefaultCard)`
   margin-top: 16px;
@@ -21,7 +21,7 @@ export const IconWrapper = styled.View`
   border-radius: 20px;
   width: 40px;
   height: 40px;
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: ${({theme}) => theme.colors.red};
 `;
 
 export const LeftContainer = styled.View`
@@ -34,6 +34,6 @@ export const RightContainer = styled.View`
 `;
 
 export const ItemDescription = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.regular};
-  color: ${({ theme }) => theme.colors.textDark};
+  font-family: ${({theme}) => theme.fonts.regular};
+  color: ${({theme}) => theme.colors.textDark};
 `;

@@ -2,6 +2,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   AccountsScreen,
+  AddTransactionScreen,
   CategoriesScreen,
   SettingsScreen,
 } from '~/presentation/screens';
@@ -20,6 +21,14 @@ export default function AppNavigator() {
       <Screen name={Routes.Accounts} component={AccountsScreen} />
       <Screen name={Routes.Categories} component={CategoriesScreen} />
       <Screen name={Routes.Settings} component={SettingsScreen} />
+      <Screen
+        name={Routes.AddTransaction}
+        component={AddTransactionScreen}
+        options={{
+          presentation: 'modal',
+          headerShown: false,
+        }}
+      />
     </Navigator>
   );
 }

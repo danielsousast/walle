@@ -1,12 +1,12 @@
 import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
 import React, {useCallback} from 'react';
 import * as Shared from '~/presentation/components/Shared/Layout';
-import {useAllTransactions, TransactionModel} from '~/features/transaction';
+import {useTransactions, TransactionModel} from '~/features/transaction';
 import {Header, ListItem, SearchInput} from '~/presentation/components';
 import {translate} from '~/common/locales';
 
 export const TransactionsScreen: React.FC = () => {
-  const {data} = useAllTransactions();
+  const {data} = useTransactions();
 
   const renderItem = useCallback(
     ({item}: ListRenderItemInfo<TransactionModel>) => {
@@ -39,7 +39,7 @@ export const TransactionsScreen: React.FC = () => {
       <Header title={translate('transactions')} />
       <Shared.DefaultContent>
         <FlashList
-          data={data}
+          data={data || []}
           estimatedItemSize={50}
           renderItem={renderItem}
           ListHeaderComponent={renderListHeader}
